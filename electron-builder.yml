@@ -1,0 +1,28 @@
+# Packaging for Windows. Build with: npm run build:win  (output in dist/)
+appId: com.abogangster.app
+productName: Abogangster
+copyright: Uso privado
+directories:
+  buildResources: build
+  output: dist
+files:
+  - out/**
+  - package.json
+  - '!**/*.map'
+asar: true
+npmRebuild: false
+win:
+  executableName: Abogangster
+  target:
+    - target: nsis
+      arch: [x64]
+nsis:
+  artifactName: Abogangster-${version}-instalador.${ext}
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: always
+  createStartMenuShortcut: true
+  shortcutName: Abogangster
+linux:
+  target: [dir]
