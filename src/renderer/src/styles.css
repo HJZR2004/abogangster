@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens. The interface is designed for readability first:
+ * large base font (set from Settings on <html>), high contrast, generous targets.
+ */
+@theme {
+  --font-sans: 'Segoe UI', 'Segoe UI Variable', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Georgia', 'Cambria', 'Times New Roman', serif;
+
+  --color-paper: #f7f5f0;
+  --color-surface: #ffffff;
+  --color-ink: #1c1917;
+  --color-muted: #57534e;
+  --color-line: #d6d3cd;
+
+  --color-brand-50: #eef3fb;
+  --color-brand-100: #d9e4f5;
+  --color-brand-600: #1f4e96;
+  --color-brand-700: #173d78;
+  --color-brand-800: #12305e;
+
+  --color-ok-50: #ecf8f0;
+  --color-ok-700: #17693a;
+  --color-warn-50: #fdf6e3;
+  --color-warn-700: #8a5a00;
+  --color-bad-50: #fdeeee;
+  --color-bad-700: #a32020;
+}
+
+html {
+  font-size: 18px;
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Visible keyboard focus everywhere. */
+:focus-visible {
+  outline: 3px solid var(--color-brand-600);
+  outline-offset: 2px;
+}
+
+/* Text of legal drafts is shown with a document-like serif font. */
+.document-text {
+  font-family: var(--font-serif);
+  line-height: 1.7;
+}
+
+dialog::backdrop {
+  background: rgb(28 25 23 / 0.45);
+}
+
+@keyframes pulse-soft {
+  50% {
+    opacity: 0.5;
+  }
+}
+.animate-pulse-soft {
+  animation: pulse-soft 1.6s ease-in-out infinite;
+}
